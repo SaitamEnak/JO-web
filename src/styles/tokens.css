@@ -1,0 +1,26 @@
+:root {
+  --cream: #f5edeb;
+  --cream-dark: #ede0dc;
+  --purple: #624981;
+  --purple-light: #8b6ba8;
+  --purple-dark: #3e2a54;
+  --grad-top: #e9cec7;
+  --grad-mid: #b89cc0;
+  --grad-bottom: #5e457f;
+
+  --violet: #2b1f45;
+  --lavender: #a984ff;
+  --pink: #f39bd8;
+  --soft: #6b5d84;
+
+  --grad-gold: linear-gradient(180deg, #5e457f 0%, #e7be7e 100%);
+  --grad-blush: linear-gradient(180deg, #5e457f 0%, #f39bd8 100%);
+  --grad-mint: linear-gradient(180deg, #5e457f 0%, #d2eeea 100%);
+
+  --border-soft: 1px solid rgba(98, 73, 129, 0.15);
+
+  --wordmark-on-dark: rgba(245, 237, 235, 0.88);
+  --wordmark-on-light: rgba(98, 73, 129, 0.5);
+  --slide-number-lg: rgba(98, 73, 129, 0.12);
+  --slide-number-md: rgba(98, 73, 129, 0.1);
+}
