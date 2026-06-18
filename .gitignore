@@ -7,3 +7,13 @@ dist-ssr
 .DS_Store
 *.log
 .vite
+
+# TS build cache
+*.tsbuildinfo
+
+# Local artifacts from tsc -b run against vite.config.ts
+vite.config.d.ts
+vite.config.js
+
+# Editor / agent local config
+.claude/

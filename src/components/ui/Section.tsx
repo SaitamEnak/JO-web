@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import { useReveal } from '../../lib/useReveal';
 
 type Props = {
   id?: string;
@@ -16,14 +15,8 @@ export function Section({
   containerClassName = '',
   as: Tag = 'section',
 }: Props) {
-  const ref = useReveal<HTMLElement>();
-
   return (
-    <Tag
-      id={id}
-      ref={ref as React.Ref<HTMLElement>}
-      className={`reveal w-full px-6 md:px-10 py-20 md:py-28 ${className}`}
-    >
+    <Tag id={id} className={`w-full px-6 md:px-10 py-20 md:py-28 ${className}`}>
       <div className={`mx-auto max-w-6xl ${containerClassName}`}>{children}</div>
     </Tag>
   );

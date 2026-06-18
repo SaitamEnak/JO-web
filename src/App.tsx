@@ -1,3 +1,4 @@
+import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
 import { EmpezarGratis } from './components/EmpezarGratis';
 import { Filosofia } from './components/Filosofia';
@@ -8,14 +9,17 @@ import { Footer } from './components/Footer';
 
 export default function App() {
   return (
-    <main className="min-h-screen bg-cream text-soft">
-      <Hero />
-      <EmpezarGratis />
-      <Filosofia />
-      <QuienSoy />
-      <EscaleraValor />
-      <Cierre />
+    <>
+      <Nav />
+      <main id="top" className="min-h-screen bg-cream text-soft">
+        <Hero />
+        <EmpezarGratis />
+        <Filosofia />
+        <QuienSoy />
+        <EscaleraValor />
+        <Cierre />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

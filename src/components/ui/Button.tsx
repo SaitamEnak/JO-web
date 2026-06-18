@@ -11,13 +11,13 @@ type Props = {
 
 const styles: Record<Variant, string> = {
   primary:
-    'bg-violet text-cream hover:bg-purple-dark border border-violet',
+    'bg-lavender text-violet border border-lavender hover:bg-violet hover:text-cream hover:border-violet shadow-[0_10px_30px_-12px_rgba(169,132,255,0.7)]',
   secondary:
     'bg-transparent text-violet border border-violet hover:bg-violet hover:text-cream',
   ghost:
     'bg-transparent text-violet border border-violet/30 hover:border-violet hover:bg-violet/5',
   light:
-    'bg-cream text-violet border border-cream hover:bg-cream-dark',
+    'bg-lavender text-violet border border-lavender hover:bg-cream hover:border-cream',
 };
 
 export function Button({
@@ -26,18 +26,17 @@ export function Button({
   variant = 'primary',
   className = '',
 }: Props) {
-  const disabled = !href;
   const base =
-    'inline-flex items-center justify-center px-7 py-3.5 text-xs md:text-sm font-medium tracking-[0.18em] uppercase rounded-full transition-all duration-300 ease-out';
+    'inline-flex items-center justify-center px-7 py-3.5 text-xs md:text-sm font-medium tracking-[0.18em] uppercase rounded-full transition-all duration-300 ease-out cursor-pointer';
 
-  if (disabled) {
+  if (!href) {
     return (
-      <span
-        aria-disabled="true"
-        className={`${base} ${styles[variant]} cursor-not-allowed opacity-50 ${className}`}
+      <button
+        type="button"
+        className={`${base} ${styles[variant]} ${className}`}
       >
         {children}
-      </span>
+      </button>
     );
   }
 

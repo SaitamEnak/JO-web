@@ -2,7 +2,7 @@
 
 ## Colores
 ```
---cream:        #F5EDEB
+--cream:        #FFFBFE
 --cream-dark:   #EDE0DC
 --purple:       #624981
 --purple-light: #8B6BA8
