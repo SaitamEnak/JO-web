@@ -1,18 +1,17 @@
 import { Section } from './ui/Section';
-import { Button } from './ui/Button';
-import { ImagePlaceholder } from './ui/ImagePlaceholder';
 import { Reveal } from './ui/Reveal';
+import johannaImg from '../img/johanna-otranto.jpg';
 
 export function QuienSoy() {
   return (
     <Section id="quien-soy" className="bg-cream">
       <div className="grid gap-14 md:grid-cols-[0.9fr_1.1fr] md:items-center">
         <Reveal direction="left" className="order-2 md:order-1">
-          <ImagePlaceholder
-            label="Foto · Johanna retrato"
-            gradient="gold"
-            ratio="4 / 5"
-            className="-rotate-3 shadow-[0_30px_80px_-30px_rgba(43,31,69,0.4)]"
+          <img
+            src={johannaImg}
+            alt="Johanna Otranto"
+            className="w-full object-cover rounded-2xl -rotate-3 shadow-[0_30px_80px_-30px_rgba(43,31,69,0.4)]"
+            style={{ aspectRatio: '4 / 5' }}
           />
         </Reveal>
 
@@ -48,11 +47,6 @@ export function QuienSoy() {
             </Reveal>
           </div>
 
-          <Reveal direction="up" delay={820}>
-            <div className="mt-10">
-              <Button variant="ghost">Conocéme más</Button>
-            </div>
-          </Reveal>
         </div>
       </div>
     </Section>

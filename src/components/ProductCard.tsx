@@ -26,14 +26,13 @@ type Props = {
   ctas: CTA[];
   footnote?: string;
   badge?: string;
-  imageLabel?: string;
-  imageSrc?: string;
+  thumbnailSrc?: string;
 };
 
 const tierStyles: Record<Tier, string> = {
-  entry: 'bg-cream text-violet border-purple/15',
-  level1: 'bg-cream text-violet border-purple/15',
-  level2: 'bg-cream text-violet border-purple/15',
+  entry: 'bg-white text-violet border-purple/10',
+  level1: 'bg-white text-violet border-purple/10',
+  level2: 'bg-white text-violet border-purple/10',
   vip: 'bg-violet text-cream border-violet',
 };
 
@@ -58,7 +57,7 @@ const tierTitle: Record<Tier, string> = {
   vip: 'text-cream',
 };
 
-const tierImage: Record<Tier, string> = {
+const tierThumb: Record<Tier, string> = {
   entry: 'bg-grad-blush',
   level1: 'bg-grad-gold',
   level2: 'bg-grad-mint',
@@ -66,116 +65,81 @@ const tierImage: Record<Tier, string> = {
 };
 
 export const ProductCard = forwardRef<HTMLElement, Props>(function ProductCard(
-  {
-    tier,
-    eyebrow,
-    title,
-    subtitle,
-    intro,
-    features,
-    prices,
-    ctas,
-    footnote,
-    badge,
-    imageLabel = 'Imagen',
-    imageSrc,
-  },
+  { tier, eyebrow, title, subtitle, intro, features, prices, ctas, footnote, badge, thumbnailSrc },
   ref,
 ) {
   return (
     <article
       ref={ref}
-      className={`relative grid overflow-hidden rounded-3xl border shadow-[0_30px_80px_-40px_rgba(43,31,69,0.45)] lg:grid-cols-[5fr_7fr] ${tierStyles[tier]}`}
+      className={`relative overflow-hidden rounded-3xl border shadow-[0_20px_60px_-30px_rgba(43,31,69,0.35)] ${tierStyles[tier]}`}
     >
-      <div
-        className={`relative min-h-[260px] lg:min-h-[460px] ${tierImage[tier]}`}
-      >
-        {imageSrc ? (
-          <img
-            src={imageSrc}
-            alt={imageLabel}
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        ) : (
-          <>
-            <div
-              className="absolute inset-0 mix-blend-soft-light"
-              style={{
-                backgroundImage:
-                  'radial-gradient(circle at 30% 20%, rgba(255,255,255,0.4), transparent 60%)',
-              }}
-            />
-            <div className="absolute inset-x-0 bottom-0 flex items-end p-6">
-              <span className="text-[10px] tracking-[0.3em] uppercase text-cream/70">
-                {imageLabel}
-              </span>
-            </div>
-          </>
-        )}
-      </div>
+      {badge && (
+        <span className="absolute right-8 top-8 rounded-full bg-lavender text-violet text-[10px] tracking-[0.25em] uppercase px-3 py-1 font-medium z-10">
+          {badge}
+        </span>
+      )}
 
-      <div className="relative flex flex-col gap-8 p-8 md:p-10 lg:p-12">
-        {badge && (
-          <span className="absolute right-8 top-8 rounded-full bg-lavender text-violet text-[10px] tracking-[0.25em] uppercase px-3 py-1 font-medium">
-            {badge}
-          </span>
-        )}
-
-        <div>
-          <p
-            className={`text-[10px] tracking-[0.3em] uppercase ${tierEyebrow[tier]} mb-4`}
+      <div className="grid md:grid-cols-2 divide-y divide-x-0 md:divide-x md:divide-y-0 divide-purple/10">
+        {/* Left — thumbnail + title */}
+        <div className="p-8 md:p-10 flex flex-col">
+          <div
+            className={`relative w-full rounded-xl overflow-hidden mb-6 ${tierThumb[tier]}`}
+            style={{ aspectRatio: '16 / 9' }}
           >
-            {eyebrow}
-          </p>
+            {thumbnailSrc ? (
+              <img src={thumbnailSrc} alt={title} className="absolute inset-0 w-full h-full object-cover" />
+            ) : (
+              <div className="absolute inset-0 flex items-end p-3">
+                <span className="text-[9px] tracking-[0.25em] uppercase text-cream/50">thumbnail</span>
+              </div>
+            )}
+          </div>
 
-          <h3
-            className={`font-serif text-2xl md:text-3xl lg:text-4xl leading-tight ${tierTitle[tier]}`}
-          >
-            {title}
-          </h3>
-          {subtitle && (
-            <p
-              className={`mt-2 font-serif italic text-lg ${tierTitle[tier]}/80`}
-            >
-              {subtitle}
+          <div className="mt-auto">
+            <p className={`text-[10px] tracking-[0.3em] uppercase ${tierEyebrow[tier]} mb-3`}>
+              {eyebrow}
             </p>
-          )}
+            <h3 className={`font-serif text-2xl md:text-3xl leading-tight ${tierTitle[tier]}`}>
+              {title}
+            </h3>
+            {subtitle && (
+              <p className={`mt-1.5 font-serif italic text-base ${tierTitle[tier]}/70`}>
+                {subtitle}
+              </p>
+            )}
+            {intro && (
+              <div className={`mt-4 text-sm leading-relaxed ${tierBody[tier]}`}>
+                {intro}
+              </div>
+            )}
+          </div>
+        </div>
 
-          {intro && (
-            <div
-              className={`mt-5 text-sm md:text-base leading-relaxed ${tierBody[tier]}`}
-            >
-              {intro}
-            </div>
-          )}
-
-          <ul className={`mt-6 space-y-2.5 text-sm ${tierBody[tier]}`}>
+        {/* Right — features + price + CTA */}
+        <div className="p-8 md:p-10 flex flex-col justify-end gap-6">
+          <ul className={`space-y-2.5 text-sm ${tierBody[tier]}`}>
             {features.map((f) => (
               <li key={f} className="flex gap-3">
-                <span className="text-lavender">✦</span>
+                <span className="text-lavender shrink-0">✦</span>
                 <span>{f}</span>
               </li>
             ))}
           </ul>
-        </div>
 
-        <div className="mt-auto">
           <div className="space-y-1">
             {prices.map((p, i) => (
               <div key={i} className="flex items-baseline gap-3">
                 <span
                   className={
                     p.strike
-                      ? `${tierBody[tier]} line-through opacity-60 text-base`
-                      : `${tierTitle[tier]} font-serif text-2xl`
+                      ? `${tierBody[tier]} line-through opacity-60 text-sm`
+                      : `${tierTitle[tier]} font-serif text-xl`
                   }
                 >
                   {p.amount}
                 </span>
                 {p.note && (
-                  <span
-                    className={`text-xs uppercase tracking-widest ${tierBody[tier]}`}
-                  >
+                  <span className={`text-xs uppercase tracking-widest ${tierBody[tier]}`}>
                     {p.note}
                   </span>
                 )}
@@ -184,18 +148,12 @@ export const ProductCard = forwardRef<HTMLElement, Props>(function ProductCard(
           </div>
 
           {footnote && (
-            <p className={`mt-4 text-xs ${tierBody[tier]} opacity-80`}>
-              {footnote}
-            </p>
+            <p className={`text-xs ${tierBody[tier]} opacity-80`}>{footnote}</p>
           )}
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3">
             {ctas.map((c) => (
-              <Button
-                key={c.label}
-                href={c.href}
-                variant={c.variant ?? 'primary'}
-              >
+              <Button key={c.label} href={c.href} variant={c.variant ?? 'primary'}>
                 {c.label}
               </Button>
             ))}

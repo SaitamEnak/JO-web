@@ -17,8 +17,6 @@ type Product = {
   prices: PriceLine[];
   ctas: CTA[];
   footnote?: string;
-  imageLabel?: string;
-  imageSrc?: string;
 };
 
 const products: Product[] = [
@@ -45,7 +43,6 @@ const products: Product[] = [
       { amount: '$19.999 ARS' },
     ],
     ctas: [{ label: 'Empezar', href: links.manual }],
-    imageLabel: 'Manual · imagen',
   },
   {
     tier: 'level1',
@@ -75,7 +72,6 @@ const products: Product[] = [
     ],
     ctas: [{ label: 'Quiero unirme', href: links.salaDespierta }],
     footnote: 'No es usar las leyes desde el ego. Es trascenderlo.',
-    imageLabel: 'Sala Despierta tu Poder · imagen',
   },
   {
     tier: 'level2',
@@ -102,7 +98,6 @@ const products: Product[] = [
         variant: 'secondary',
       },
     ],
-    imageLabel: 'Marca Personal · imagen',
   },
   {
     tier: 'vip',
@@ -136,7 +131,6 @@ const products: Product[] = [
       { label: 'Aplicar proceso', href: links.vipProceso, variant: 'light' },
     ],
     footnote: 'Cupos limitados — aplicación previa.',
-    imageLabel: 'Sesiones 1:1 · imagen',
   },
 ];
 

@@ -5,7 +5,7 @@ import { Reveal } from './ui/Reveal';
 export function Cierre() {
   return (
     <Section
-      className="bg-violet text-cream"
+      className="bg-violet text-cream !pb-0"
       containerClassName="text-center max-w-3xl"
     >
       <Reveal>
