@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import { Section } from './ui/Section';
 import { Reveal } from './ui/Reveal';
 import johannaImg from '../img/johanna-otranto.jpg';
+import speakerImg from '../img/johanna-otranto-speaker.png';
 
 type StackImage = { src: string; alt: string } | { src: null; gradient: string };
 
 const IMAGES: StackImage[] = [
   { src: johannaImg, alt: 'Johanna Otranto' },
-  { src: null, gradient: 'linear-gradient(180deg, #5E457F 0%, #F39BD8 100%)' },
+  { src: speakerImg, alt: 'Johanna Otranto Speaker' },
   { src: null, gradient: 'linear-gradient(180deg, #5E457F 0%, #e7be7e 100%)' },
 ];
 
@@ -72,13 +73,13 @@ function ImageStack() {
       })}
 
       {/* dot indicators */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-40">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-40 bg-black/30 backdrop-blur-sm rounded-full px-3 py-2">
         {IMAGES.map((_, i) => (
           <button
             key={i}
             onClick={e => { e.stopPropagation(); setActive(i); }}
-            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-              i === active ? 'bg-cream w-4' : 'bg-cream/50'
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              i === active ? 'bg-white w-4' : 'w-1.5 bg-white/35'
             }`}
             aria-label={`Imagen ${i + 1}`}
           />

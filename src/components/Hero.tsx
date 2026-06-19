@@ -1,9 +1,9 @@
 import { Section } from './ui/Section';
 import { Button } from './ui/Button';
-import { ImagePlaceholder } from './ui/ImagePlaceholder';
 import { Reveal } from './ui/Reveal';
 import { Logo } from './ui/Logo';
 import { links } from '../lib/links';
+import heroImg from '../img/johanna-otranto-coach.png';
 
 export function Hero() {
   return (
@@ -52,12 +52,17 @@ export function Hero() {
         </div>
 
         <Reveal direction="right" delay={180} className="relative">
-          <ImagePlaceholder
-            label="Foto · Johanna"
-            gradient="blush"
-            ratio="4 / 5"
-            className="rotate-3 shadow-[0_30px_80px_-30px_rgba(43,31,69,0.45)]"
-          />
+          <div
+            className="rounded-2xl rotate-3 shadow-[0_30px_80px_-30px_rgba(43,31,69,0.45)] p-[8px]"
+            style={{ background: 'linear-gradient(180deg, #5E457F 0%, #F39BD8 100%)' }}
+          >
+            <img
+              src={heroImg}
+              alt="Johanna Otranto Coach"
+              className="w-full object-cover rounded-[14px]"
+              style={{ aspectRatio: '4 / 5', display: 'block' }}
+            />
+          </div>
         </Reveal>
       </div>
     </Section>
