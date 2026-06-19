@@ -51,7 +51,7 @@ function ImageStack() {
           boxShadow: pos === 0 ? '0 30px 80px -20px rgba(43,31,69,0.45)' : 'none',
         };
 
-        if (img.src) {
+        if (img.src !== null) {
           return (
             <div key={i} style={style}>
               <img
@@ -66,7 +66,7 @@ function ImageStack() {
         return (
           <div
             key={i}
-            style={{ ...style, background: img.gradient }}
+            style={{ ...style, background: (img as { src: null; gradient: string }).gradient }}
           />
         );
       })}
