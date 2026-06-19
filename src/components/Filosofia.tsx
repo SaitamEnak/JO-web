@@ -4,7 +4,7 @@ import { Logo } from './ui/Logo';
 
 export function Filosofia() {
   return (
-    <Section className="bg-cream" containerClassName="flex justify-center">
+    <Section className="bg-cream overflow-hidden" containerClassName="flex justify-center">
       <div className="relative flex justify-center w-full max-w-2xl">
         {/* decorative circle behind the card */}
         <div

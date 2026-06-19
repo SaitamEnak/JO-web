@@ -40,11 +40,11 @@ export function Hero() {
           </Reveal>
 
           <Reveal direction="up" delay={440}>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Button href={links.salaDespierta} variant="primary">
+            <div className="mt-10 flex flex-col md:flex-row gap-4">
+              <Button href={links.salaDespierta} variant="primary" className="w-full md:w-auto">
                 Empezar ahora
               </Button>
-              <Button href="#empezar-gratis" variant="secondary">
+              <Button href="#empezar-gratis" variant="secondary" className="w-full md:w-auto">
                 Quiero saber más
               </Button>
             </div>

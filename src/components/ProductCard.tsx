@@ -128,7 +128,7 @@ export const ProductCard = forwardRef<HTMLElement, Props>(function ProductCard(
 
           <div className="space-y-1">
             {prices.map((p, i) => (
-              <div key={i} className="flex items-baseline gap-3">
+              <div key={i} className="flex flex-col">
                 <span
                   className={
                     p.strike
@@ -151,9 +151,9 @@ export const ProductCard = forwardRef<HTMLElement, Props>(function ProductCard(
             <p className={`text-xs ${tierBody[tier]} opacity-80`}>{footnote}</p>
           )}
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-col md:flex-row gap-3">
             {ctas.map((c) => (
-              <Button key={c.label} href={c.href} variant={c.variant ?? 'primary'}>
+              <Button key={c.label} href={c.href} variant={c.variant ?? 'primary'} className="w-full md:w-auto">
                 {c.label}
               </Button>
             ))}
