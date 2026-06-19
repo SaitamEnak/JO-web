@@ -5,7 +5,8 @@ import { Reveal } from './ui/Reveal';
 export function Cierre() {
   return (
     <Section
-      className="bg-violet text-cream !pb-0"
+      className="text-cream !pb-0"
+      style={{ background: 'linear-gradient(to bottom, #F0EBEF 0px, #2B1F45 96px, #2B1F45 100%)' }}
       containerClassName="text-center max-w-3xl"
     >
       <Reveal>

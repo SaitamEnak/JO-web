@@ -1,18 +1,32 @@
 import { Section } from './ui/Section';
 import { Reveal } from './ui/Reveal';
+import { Logo } from './ui/Logo';
 
 export function Filosofia() {
   return (
-    <Section className="bg-grad-blush" containerClassName="flex justify-center">
-      <Reveal direction="scale" className="w-full max-w-2xl">
-        <div className="relative bg-[#FAF6F4] rounded-3xl shadow-[0_40px_100px_-20px_rgba(43,31,69,0.45)] px-10 py-12 md:px-16 md:py-16 rotate-[-1deg]">
+    <Section className="bg-cream" containerClassName="flex justify-center">
+      <div className="relative flex justify-center w-full max-w-2xl">
+        {/* decorative circle behind the card */}
+        <div
+          aria-hidden="true"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full pointer-events-none"
+          style={{ background: 'linear-gradient(180deg, #5E457F 0%, #F39BD8 100%)' }}
+        />
+
+      <Reveal direction="scale" className="w-full">
+        {/* gradient border wrapper */}
+        <div
+          className="rounded-3xl rotate-[-1deg] p-px shadow-[0_40px_100px_-20px_rgba(43,31,69,0.35)]"
+          style={{ background: 'linear-gradient(135deg, #A984FF 0%, #F39BD8 100%)' }}
+        >
+        <div className="relative bg-[#FAF6F4] rounded-3xl px-10 py-12 md:px-16 md:py-16">
 
           {/* Letterhead */}
           <div className="flex items-center justify-between mb-10">
             <p className="text-[10px] tracking-[0.3em] uppercase text-purple/50">
               Filosofía
             </p>
-            <span className="text-lavender text-lg">✦</span>
+            <Logo variant="isotipo" className="h-8 w-auto text-lavender" />
           </div>
 
           {/* Salutation */}
@@ -61,7 +75,9 @@ export function Filosofia() {
             className="absolute -bottom-3 -right-3 w-16 h-16 rounded-full bg-lavender/20 blur-xl pointer-events-none"
           />
         </div>
+        </div>
       </Reveal>
+      </div>
     </Section>
   );
 }

@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 type Props = {
   id?: string;
@@ -6,6 +6,7 @@ type Props = {
   className?: string;
   containerClassName?: string;
   as?: 'section' | 'header' | 'footer';
+  style?: CSSProperties;
 };
 
 export function Section({
@@ -14,9 +15,10 @@ export function Section({
   className = '',
   containerClassName = '',
   as: Tag = 'section',
+  style,
 }: Props) {
   return (
-    <Tag id={id} className={`w-full px-6 md:px-10 py-20 md:py-28 ${className}`}>
+    <Tag id={id} className={`w-full px-6 md:px-10 py-20 md:py-28 ${className}`} style={style}>
       <div className={`mx-auto max-w-6xl ${containerClassName}`}>{children}</div>
     </Tag>
   );
