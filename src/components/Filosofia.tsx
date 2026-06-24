@@ -1,6 +1,8 @@
 import { Section } from './ui/Section';
 import { Reveal } from './ui/Reveal';
 import { Logo } from './ui/Logo';
+import Firma from '../img/SVG/firma.svg?react';
+import quoteUrl from '../img/SVG/quote.svg?url';
 
 export function Filosofia() {
   return (
@@ -54,9 +56,7 @@ export function Filosofia() {
               Es soltar el ego.<br />
               Es elevar tu nivel de conciencia.
             </p>
-            <p className="text-violet font-medium">
-              Porque cuando estás en coherencia… te volvés magnético.
-            </p>
+            <img src={quoteUrl} alt="Porque cuando estás en coherencia… te volvés magnético." className="w-full max-w-sm -ml-6" />
             <p>
               Y ya no atraés desde la necesidad,<br />
               atraés desde la abundancia que sos.
@@ -64,9 +64,9 @@ export function Filosofia() {
           </div>
 
           {/* Signature */}
-          <div className="mt-10 flex flex-col items-start gap-1">
+          <div className="mt-10 flex flex-col items-start gap-2">
             <p className="text-soft/60 text-xs tracking-widest uppercase">Con amor,</p>
-            <p className="font-[Mynerve] text-violet text-3xl mt-1">Johanna</p>
+            <Firma fill="currentColor" className="h-16 w-auto text-violet mt-1" aria-label="Firma de Johanna" />
           </div>
 
           {/* Decorative corner dot */}
